@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grid Layout</title>
+<style>
+  .grid-LoginContainer {
+   /* display: grid;  Use grid layout */
+   /*  grid-template-columns: 1fr 5fr 1fr;  Three columns of equal width 
+   */
+   display: grid;
+   grid-template-rows: 40% 40% 20%; 
+   height: 100%;
+   width:  100%;
+  }
+  .grid-Login {
+    background-color: lightgray; /* Background color for blocks */
+   /* padding: 20px; /* Padding inside the blocks 
+    text-align: center; /* Center text horizontally 
+    height: 60px;*/
+  }
+</style>
+</head>
+<body>
+
+
+  <div class="grid-Login">
+    <% if (user) { %>
+        <%= user.name %>
+      <% } else { %>
+        <div class="grid-LoginContainer">
+          <div><input
+            placeholder="Nickname"
+            name="nicknmae"
+            required></div>
+          <div><input
+            placeholder="password"
+            name="pasword"
+            required></div>
+          <div > <form action="/login">
+            <button type="submit">Login</button>
+        
+        </form>  <a href="/register">Registrace</a>
+        </div>
+      </div>
+      <% } %>
+      
+    </div>
+
+
+
+</body>
+</html>

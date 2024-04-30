@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grid Layout</title>
+<style>
+  .grid-mainDivide {
+    display: grid; /* Use grid layout */
+    grid-template-rows: 20vmin 80vmin;
+    gap: 20px; /* Space between columns */
+
+  }
+  .grid-container {
+    display: grid; /* Use grid layout */
+    grid-template-columns: 15% 70% 15%; /* Three columns of equal width */
+   /*grid-template-rows: 10fr 100fr;*/
+    gap: 20px; /* Space between columns */
+  }
+  .grid-topLine {
+    display: grid; /* Use grid layout */
+    grid-template-columns: 15% 70% 15%;
+    gap: 20px; /* Space between columns */
+  }
+  .grid-block {
+    background-color: lightgray; /* Background color for blocks */
+   /* padding: 20px;  Padding inside the blocks */
+    text-align: center; /* Center text horizontally */
+  }
+  .center-block {
+    background-color: lightblue; /* Different color for center block */
+  }
+  
+  
+  .grid-block:nth-child(1) {
+ /* grid-column: 1 / span 3;  spans across all three columns 
+    height: 60px;*/
+}
+
+
+</style>
+</head>
+<body>
+  <div class="grid-mainDivide"> 
+    <div class="grid-topLine"> 
+      <div class="grid-block">Item 1</div>
+      <div class="grid-block">Item 2</div>
+      <div class="grid-block"><%- include('_loginView') %></div>
+    </div>
+    <div class="grid-container">
+      <div class="grid-block">Item main 1</div>
+      <div class="grid-block">Item main 2</div>
+      <div class="grid-block">Item main 3</div>
+    </div>
+  </div>
+
+</body>
+</html>

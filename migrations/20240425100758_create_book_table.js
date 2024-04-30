@@ -4,7 +4,7 @@
  */
 export const up = async (knex) => {
     await knex.schema.createTable('books', (table) => {
-      table.increments('id').primary()
+      table.string('id').primary()
       table.string('title')
       table.string('author')
       table.string('language')

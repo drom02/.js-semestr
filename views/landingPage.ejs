@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grid Layout</title>
+<style>
+  .grid-container {
+    display: grid; /* Use grid layout */
+    grid-template-columns: 1fr 5fr 1fr; /* Three columns of equal width */
+    grid-template-rows: 10fr 100fr;
+    gap: 20px; /* Space between columns */
+    padding: 20px; /* Padding around the grid */
+  }
+  .grid-block {
+    background-color: lightgray; /* Background color for blocks */
+    padding: 20px; /* Padding inside the blocks */
+    text-align: center; /* Center text horizontally */
+  }
+  .center-block {
+    background-color: lightblue; /* Different color for center block */
+  }
+  .grid-block:nth-child(1) {
+  grid-column: 1 / span 3; /* spans across all three columns */
+}
+</style>
+</head>
+<body>
+
+<div class="grid-container">
+  <div class="grid-block">Item 1</div>
+  <div class="grid-block">Item 2</div>
+  <div class="grid-block">Item 3</div>
+  <div class="grid-block">Item 4</div>
+</div>
+
+</body>
+</html>
