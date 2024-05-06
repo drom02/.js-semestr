@@ -3,20 +3,16 @@ import knex from 'knex'
 import knexfile from '../knexfile.js'
 import  { db} from './db.js'
 import { v4 as uuidv4 } from 'uuid';
-import {app} from './app.js'
 //Get book details
 export function setupBookRoutes(app) {
 app.get('/book/:id', async (req, res, next) => {
-    const todo = await db('todos').select('*').where('id', req.body.id).first()
-    if (!todo) return next()
-    res.render('todo-detail', {
-      todo,
-    })
+    const book = await db('books').select('*').where("id", req.params.id).first()
+    if (!book) return null
+    res.json(book);
   })
   //Add book
 app.post('/add-book', async (req, res, next) => {
     const checkBook = await db('books').select('*').where('title', req.body.title).first()
-    
     if (!checkBook){
       let ident = uuidv4();
       const book = {
@@ -52,4 +48,19 @@ app.post('/update-todo/:id', async (req, res, next) => {
     sendTodoDetail(todo.id);
     res.redirect('back')
   })
+
+//getBooks
+app.get('/api/books', async (req,res) => {
+  const data = await loadBooks();
+  res.json(data);
+
+})
+
 }
+
+//load books
+export async function loadBooks(){
+  const books = await db('books').select('*').orderBy('title').limit(100)
+  if (!books) return null;
+  return books;
+} 

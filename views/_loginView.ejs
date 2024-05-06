@@ -15,6 +15,15 @@
    height: 100%;
    width:  100%;
   }
+  .grid-LoggedIn {
+   /* display: grid;  Use grid layout */
+   /*  grid-template-columns: 1fr 5fr 1fr;  Three columns of equal width 
+   */
+   display: grid;
+   grid-template-rows: 40% 40% 20%; 
+   height: 100%;
+   width:  100%;
+  }
   .grid-Login {
     background-color: lightgray; /* Background color for blocks */
    /* padding: 20px; /* Padding inside the blocks 
@@ -28,22 +37,28 @@
 
   <div class="grid-Login">
     <% if (user) { %>
-        <%= user.name %>
+      <div ><%= user.name %></div>
+      <div ><%= user.role %></div>
+      <form action="/logout" method="POST">
+        <button type="submit">Logout</button>
+      </form>
       <% } else { %>
         <div class="grid-LoginContainer">
+          <div > <form action="/login" method="POST">
           <div><input
             placeholder="Nickname"
-            name="nicknmae"
+            name="nickname"
             required></div>
           <div><input
             placeholder="password"
-            name="pasword"
+            name="password"
             required></div>
-          <div > <form action="/login">
-            <button type="submit">Login</button>
+            <div><button type="submit">Login</button> </form>  <a href="/registerForm">Registrace</a></div>
+
+          </div>
+          
         
-        </form>  <a href="/register">Registrace</a>
-        </div>
+       
       </div>
       <% } %>
       

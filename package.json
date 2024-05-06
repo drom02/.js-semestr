@@ -2,7 +2,8 @@
   "name": "todos",
   "type": "module",
   "scripts": {
-    "dev": "nodemon main.js"
+    "dev": "nodemon main.js",
+    "test" : "ava"
   },
   "dependencies": {
     "cookie-parser": "^1.4.6",

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Content Loading</title>
+</head>
+<style>
+    .grid-detailDivide {
+    display: grid; /* Use grid layout */
+    grid-template-rows: 20% 20% 20% 20% 20% ;
+    grid-template-columns: 60% 40%;
+    gap: 20px; /* Space between columns */
+
+  }
+  .grid-detail-field {
+    background-color: lightgray; /* Background color for blocks */
+    border-width: 1px;
+    border-style: solid;
+    border-color: brown;
+    grid-column: 1
+   /* padding: 20px; /* Padding inside the blocks 
+    text-align: center; /* Center text horizontally 
+    height: 60px;*/
+  }
+
+
+</style>
+<body>
+ 
+    <div class="grid-detailDivide">
+        <div id="titleField" class="grid-detail-field"> Title</div>
+        <div  id="authorField"class="grid-detail-field"> author</div>
+        <div id="languageField" class="grid-detail-field"> language</div>
+        <div id="abstractField" class="grid-detail-field"> abstract</div>
+        <div id="buttonsField" class="grid-detail-field"> 
+          </div>
+    </div>
+    <div id="content"></div>
+    <script type="module" src="/appBookDetails.js">
+      console.log("hi");  </script>
+</body>
+</html>

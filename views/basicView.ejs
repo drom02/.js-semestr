@@ -41,16 +41,23 @@
 </style>
 </head>
 <body>
+  
+<script>fetch('/validateRole').then(r=> r.json()).then(state => {
+  if(state ===true){
+    document.getElementById('bookCreate').innerHTML = ` <%- include('createBook') %>`
+  }
+  
+})</script>
   <div class="grid-mainDivide"> 
     <div class="grid-topLine"> 
       <div class="grid-block">Item 1</div>
-      <div class="grid-block">Item 2</div>
+      <div  id="bookCreate"   class="grid-block"></div>
       <div class="grid-block"><%- include('_loginView') %></div>
     </div>
     <div class="grid-container">
-      <div class="grid-block">Item main 1</div>
-      <div class="grid-block">Item main 2</div>
-      <div class="grid-block">Item main 3</div>
+      <div class="grid-block"><%- include('_allBooksView') %></div>
+      <div id="detailView" class="grid-block"></div>
+      <div class="grid-block"><%- include('_favoriteBooksView') %></div>
     </div>
   </div>
 
