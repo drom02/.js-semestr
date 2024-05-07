@@ -29,12 +29,23 @@ setupBookRoutes(app);
 setupGraphicRoutes(app);
 setupBookFavoriteRoutes(app);
 //Validate
-app.get('/validateRole', async (req, res,next) => {
+app.get('/validateRole',async (req,res) => {
+  if(!req.cookies.token){
+    res.send(false);
+    return;
+  } 
+  console.log(res.locals.user)
+  console.log( res.locals.user.role)
   if(res.locals.user){
     if(res.locals.user.role==="admin"){
+      console.log("isAdmin")
       res.send(true);
+    }else{
+      console.log("isn't")
+      res.send(false);
     }
   }else{
+    console.log("isn't")
     res.send(false);
   }
 })

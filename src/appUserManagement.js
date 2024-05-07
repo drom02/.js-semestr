@@ -15,7 +15,7 @@ export async function  getUserByID(id){
 }
 export async function  getUserByToken(token){
     const user = await db('users').select('*').where('token', token).first();
-    if (!user)return null;
+    if (!user) return null;
         return user;    
 }
   export async function login (nickname, password, res){
