@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { getUserByToken,login,register,logout } from './appUserManagement.js';
 import {setupGraphicRoutes} from  './appGraphicManagement.js';
 import { setupBookFavoriteRoutes } from './appFavoritesManagement.js'
+import { setupTagRoutes } from './appTagsManagement.js'
 export const app = express();
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
@@ -18,7 +19,6 @@ app.use(async (req, res, next) => {
     const token = req.cookies.token
     if (token) {
       res.locals.user = await getUserByToken(token)
-      
     } else {
       res.locals.user = null
     }
@@ -26,6 +26,7 @@ app.use(async (req, res, next) => {
   })
 import { setupBookRoutes } from './appBookManagement.js';
 setupBookRoutes(app);
+setupTagRoutes(app);
 setupGraphicRoutes(app);
 setupBookFavoriteRoutes(app);
 //Validate
@@ -34,19 +35,15 @@ app.get('/validateRole',async (req,res) => {
     res.send(false);
     return;
   } 
-  console.log(res.locals.user)
-  console.log( res.locals.user.role)
   if(res.locals.user){
     if(res.locals.user.role==="admin"){
-      console.log("isAdmin")
-      res.send(true);
+      res.send("admin");
     }else{
-      console.log("isn't")
-      res.send(false);
+      res.send("user");
     }
   }else{
     console.log("isn't")
-    res.send(false);
+    res.send("none");
   }
 })
   //Remove
@@ -68,6 +65,7 @@ app.get('/validateRole',async (req,res) => {
       title: 'Test',
     })
   })
+  
    //register new user page
    app.post('/register-user', async (req, res) => {
     console.log('registrace');

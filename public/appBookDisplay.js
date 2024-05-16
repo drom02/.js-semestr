@@ -1,8 +1,8 @@
 import { displayDetails } from "./appBookDetails.js"; 
-document.addEventListener('DOMContentLoaded', function() {
-    fetchData();
+document.addEventListener('DOMContentLoaded', async function() {
+    await fetchData();
 });
-function fetchData() {
+export async function fetchData() {
     fetch('/api/books')
     .then(response => response.json())
     .then(books => {

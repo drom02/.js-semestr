@@ -7,13 +7,20 @@
 <style>
     .grid-detailDivide {
     display: grid; /* Use grid layout */
-    grid-template-rows: 20% 20% 20% 20% 20% ;
+    grid-template-rows: 17% 16% 30% 20% 17% ;
     grid-template-columns: 60% 40%;
     gap: 20px; /* Space between columns */
 
   }
+  .grid-detailTags {
+    display: grid; /* Use grid layout */
+    grid-template-columns: 80% 20%;
+    gap: 2px; /* Space between columns */
+
+  }
   .grid-detail-field {
     background-color: lightgray; /* Background color for blocks */
+    min-height: 20px;
     border-width: 1px;
     border-style: solid;
     border-color: brown;
@@ -22,18 +29,28 @@
     text-align: center; /* Center text horizontally 
     height: 60px;*/
   }
+
+  form[id="detailForm"] input {
+            min-width: 80%;       /* Set the width of input fields */
+            min-height: 80%;       /* Set the height of input fields */
+            padding: 0px;       /* Add padding inside the input fields */
+            margin: 0px 0;     /* Add vertical margin around the input fields */
+            font-size: 12px;    /* Set the font size inside the input fields */
+        }
+  input[id="abstractField"] {
+            height: 200%; 
+            font-size: 19px;        /* Set the height of input fields */
+        }
 </style>
 <body>
  
-    <div class="grid-detailDivide">
-        <div id="titleField" class="grid-detail-field"> Title</div>
-        <div  id="authorField"class="grid-detail-field"> author</div>
-        <div id="languageField" class="grid-detail-field"> language</div>
-        <div id="abstractField" class="grid-detail-field"> abstract</div>
-        <div id="buttonsField" class="grid-detail-field"></div>
-    </div>
+    <div id="detailGrid" class="grid-detailDivide"></div>
     <div id="content"></div>
-    <script type="module" src="/appBookDetails.js">
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+      <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
       </script>
+      
 </body>
 </html>

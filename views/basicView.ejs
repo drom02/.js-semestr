@@ -42,8 +42,8 @@
 </head>
 <body>
   
-<script>fetch('/validateRole').then(r=> r.json()).then(state => {
-  if(state ===true){
+<script>fetch('/validateRole').then(r=> r.text()).then(state => {
+  if(state ==="admin"){
     document.getElementById('bookCreate').innerHTML = ` <%- include('createBook') %>`
   }
   

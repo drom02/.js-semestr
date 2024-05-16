@@ -9,6 +9,7 @@ export const up = async (knex) => {
       table.string('author')
       table.string('language')
       table.string('abstract')
+      table.string('tags')
       
     })
   }
